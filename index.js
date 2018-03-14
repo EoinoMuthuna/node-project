@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
-import postsRouter from './api/golfers';
+import golfersRouter from './api/golfers';
 dotenv.config();
 
 const app = express();
@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded());
 
 
 
-app.use('/api/golfers', postsRouter);
+app.use('/api/golfers', golfersRouter);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);

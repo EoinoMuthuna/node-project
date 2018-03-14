@@ -5,6 +5,7 @@ import _ from 'lodash';
             gName: 'Tiger Woods',
             origin: 'USA',
             sponsor: 'Nike',
+            tournament:[],
             fedxPoints: [10],
             seasonWins: 0,
           },
@@ -13,7 +14,8 @@ import _ from 'lodash';
             gName: 'Dustin Johnson',
             origin: 'USA',
             sponsor: 'TaylorMade',
-            fedxPoints: [100],
+            tournament:[],
+            fedxPoints: [],
             seasonWins: 2,
           },
           {
@@ -21,7 +23,8 @@ import _ from 'lodash';
             gName: 'Rory Mclroy',
             origin: 'Northern Ireland',
             sponsor: 'Nike',
-            fedxPoints: [50],
+            tournament:[],
+            fedxPoints: [],
             seasonWins: 1,
           },
           
@@ -56,6 +59,7 @@ import _ from 'lodash';
                 }
               return false;
            },
+
          getGolfer: (id) => {
             let result = null;
             const index = _.findIndex(golfers,
@@ -67,6 +71,25 @@ import _ from 'lodash';
                     }
             return result;
             },
+          
+
+          addTournament: (golferId, c) => {
+            let result = false;
+            const golfer = stubAPI.getGolfer(golferId);
+            let id = 1;
+            if (golfer) {
+            const last = _.last(golfer.tournament);
+            if (last) {
+               id = last.id + 1;
+            }
+            golfer.tournament.push({'id': id,
+                     'Tournament': c} );
+            result = true;
+            }
+          return result;
+          },
+         
+
          addFedxPoints: (postId, c, n) => {
             let result = false;
             const post = stubAPI.getGolfer(postId);
