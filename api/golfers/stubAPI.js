@@ -6,7 +6,6 @@ import _ from 'lodash';
             origin: 'USA',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: [10],
             seasonWins: 0,
           },
          {
@@ -15,7 +14,6 @@ import _ from 'lodash';
             origin: 'USA',
             sponsor: 'TaylorMade',
             tournament:[],
-            fedxPoints: [],
             seasonWins: 2,
           },
           {
@@ -24,7 +22,6 @@ import _ from 'lodash';
             origin: 'Northern Ireland',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: [],
             seasonWins: 1,
           },
           

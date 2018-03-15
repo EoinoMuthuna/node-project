@@ -6,9 +6,9 @@ import Golfers from './golfersModel';
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Golfers.find((err, golfers) => {
+  Golfers.find((err, golfer) => {
    if (err) return handleError(res, err);
-    return res.json(200, golfers);
+    return res.json(200, golfer);
   });
 });
 
@@ -16,9 +16,9 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
      const newGolfer = req.body;
     if (newGolfer) {
-           Golfer.create(newGolfer, (err, golfer) => {
+           Golfers.create(newGolfer, (err, golfer) => {
               if (err) return handleError(res, err);
-                 return res.status(201).send({golfer});
+                 return res.status(201).json(golfer);
           });
       } else {
          return handleError(res, err);
@@ -28,9 +28,9 @@ router.post('/', (req, res) => {
 // get golfer
 router.get('/:id', (req, res) => {
     const id = req.params.id;
-    Golfer.findById(id, (err, golfer) => {
+    Golfers.findById(id, (err, golfer) => {
         if (err) return handleError(res, err);
-        return res.send({golfer});
+        return res.status(200).json(golfer);
   } );
 });
 
@@ -39,12 +39,17 @@ router.get('/:id', (req, res) => {
 router.post('/:id/tournament', (req, res) => {
    const id = req.params.id;
    const tournament = req.body;
-   Golfer.findById(id, (err, golfer)=>{
+   console.log('tournament: '+tournament);
+   Golfers.findById(id, (err, golfer)=>{
      if (err) return handleError(res, err);
+     if(!golfer){
+      console.log('golfer seems to be empty:'+golfer);
+     };
+     
         golfer.tournament.push(tournament);
-        post.save((err) => {
+        golfer.save((err) => {
           if (err) return handleError(res, err);
-           return res.status(201).send({golfer});
+           return res.status(201).json(golfer);
         });
   });
 });
