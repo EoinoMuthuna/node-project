@@ -1,6 +1,6 @@
 import express from 'express';
 import Golfers from './golfersModel';
-
+import _ from 'lodash';
 
 
 const router = express.Router();
@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
 });
 
 
-// Delete a contact
+// Delete a golfer
 router.delete('/:id', (req, res) => {
   Golfers.findById(req.params.id, (err, golfer) => {
     if (err) return handleError(res, err);
@@ -45,6 +45,22 @@ router.get('/:id', (req, res) => {
         if (err) return handleError(res, err);
         return res.status(200).json(golfer);
   } );
+});
+
+
+//update a golfer
+router.put('/:id',(req, res) =>{
+  if (req.body._id) delete req.body._id;
+  Golfers.findById(req.params.id, (err, golfer) =>{
+    if (err) return handleError(res, err);
+    if(!golfer) return res.send(408);
+    const updated = _.merge(golfer, req.body);
+    updated.save((err) => {
+     if (err) return handleError(res, err);
+     return res.json(200, golfer);
+
+      });
+  });
 });
 
 
