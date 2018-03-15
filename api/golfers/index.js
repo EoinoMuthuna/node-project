@@ -61,7 +61,7 @@ router.post('/:id/tournament', (req, res) => {
      golfer.tournament.push(tournament);
         golfer.save((err) => {
           if (err) return handleError(res, err);
-           return res.status(201).json(golfer);
+           return res.status(200).json({message: " Tournament Added to Golfer"});
         });
   });
 });
