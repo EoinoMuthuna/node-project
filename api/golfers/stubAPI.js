@@ -35,8 +35,8 @@ import _ from 'lodash';
          getAll: () => {
             return golfers;
           },
-         add: (t, l, r, h) => {
-              if (!(t && l && r && h)) return false;
+         add: (t, l, r, p, h) => {
+              if (!(t && l && r && p && h)) return false;
               let id = 1;
               const last = _.last(golfers);
               if (last) {
@@ -45,13 +45,17 @@ import _ from 'lodash';
               let len = golfers.length;
               let newLen = golfers.push({
                   'id': id,
-                 'gName': t, 'origin': l, 'sponsor': r, 'fedxPoints': [], 'seasonWins':h});
+                 'gName': t, 'origin': l, 'sponsor': r, 'fedxPoints': p, 'seasonWins':h});
                return newLen > len?id:-1;
               },
+         
+
+
+
          seasonWins: (id) => {
              const index = _.findIndex(golfers,
-                   (post) => {
-                    return post.id == id;
+                   (golfer) => {
+                    return golfer.id == id;
                   } );
              if (index !== -1) {
                   golfers[index].seasonWins += 1;
@@ -63,8 +67,8 @@ import _ from 'lodash';
          getGolfer: (id) => {
             let result = null;
             const index = _.findIndex(golfers,
-                   (post) => {
-                    return post.id == id;
+                   (golfer) => {
+                    return golfer.id == id;
                   } );
              if (index !== -1) {
                 result = golfers[index];
@@ -73,7 +77,7 @@ import _ from 'lodash';
             },
           
 
-          addTournament: (golferId, c) => {
+          addTournament: (golferId, x) => {
             let result = false;
             const golfer = stubAPI.getGolfer(golferId);
             let id = 1;
@@ -83,14 +87,14 @@ import _ from 'lodash';
                id = last.id + 1;
             }
             golfer.tournament.push({'id': id,
-                     'Tournament': c} );
+                     'Tournament': x} );
             result = true;
             }
           return result;
           },
          
 
-         addFedxPoints: (postId, c, n) => {
+         /*addFedxPoints: (postId, c, n) => {
             let result = false;
             const post = stubAPI.getGolfer(postId);
             let id = 1;
@@ -104,7 +108,7 @@ import _ from 'lodash';
             result = true;
             }
           return result;
-            },
+            },*/
          
-      };
+      };  
     export default stubAPI;
