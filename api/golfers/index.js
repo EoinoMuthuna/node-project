@@ -25,6 +25,19 @@ router.post('/', (req, res) => {
       }
 });
 
+
+// Delete a contact
+router.delete('/:id', (req, res) => {
+  Golfers.findById(req.params.id, (err, golfer) => {
+    if (err) return handleError(res, err);
+    if (!golfer) return res.send(404);
+    golfer.remove(function(err) {
+      if (err) return handleError(res, err);
+      return res.status(200).json({message: "Golfer deleted"});
+    });
+  });
+});
+
 // get golfer
 router.get('/:id', (req, res) => {
     const id = req.params.id;
@@ -45,8 +58,7 @@ router.post('/:id/tournament', (req, res) => {
      if(!golfer){
       console.log('golfer seems to be empty:'+golfer);
      };
-     
-        golfer.tournament.push(tournament);
+     golfer.tournament.push(tournament);
         golfer.save((err) => {
           if (err) return handleError(res, err);
            return res.status(201).json(golfer);

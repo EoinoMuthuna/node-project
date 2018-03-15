@@ -6,7 +6,7 @@ const golfers = [
             origin: 'USA',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: [10],
+            fedxPoints: 0,
             seasonWins: 0,
           },
          {
@@ -14,7 +14,7 @@ const golfers = [
             origin: 'USA',
             sponsor: 'TaylorMade',
             tournament:[],
-            fedxPoints: [],
+            fedxPoints: 0,
             seasonWins: 2,
           },
           {
@@ -23,7 +23,7 @@ const golfers = [
             origin: 'Northern Ireland',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: [],
+            fedxPoints: 0,
             seasonWins: 1,
           },
           
