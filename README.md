@@ -48,30 +48,9 @@ I also provided an enum to force the user to enter that they either play golf on
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Associated files
+Storage
 
-node-project/index.js
-
-node-project/golfersData.js
-
-node-project/package.json
-
-node-project/.env
-
-node-project/.babelrc
-
-node-project/README.md
-
-node-project/package-lock.json
-
-
-
-
-
-node-project/api/golfers/index.js
-
-node-project/api/golfers/golfersModel.js
-
+I have used a noSQL structure using Mongo which is hosted on Mlab with mongoose being used as the middleware.
 
 
 
