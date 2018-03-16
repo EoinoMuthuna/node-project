@@ -1,6 +1,7 @@
 import express from 'express';
 import Golfers from './golfersModel';
 import _ from 'lodash';
+import j2x from 'json2xml';
 
 
 const router = express.Router();
@@ -43,7 +44,14 @@ router.get('/:id', (req, res) => {
     const id = req.params.id;
     Golfers.findById(id, (err, golfer) => {
         if (err) return handleError(res, err);
-        return res.status(200).json(golfer);
+        res.format({
+            'application/xml': function(){
+              var golferPlain = golfer.toObject();
+              return res.status(200).send(j2x({golfer: golferPlain}));}
+            ,'default': function(){return res.status(200).json(golfer);}
+
+          });
+        //
   } );
 });
 
