@@ -1,30 +1,65 @@
 import golfersModel from './api/golfers/golfersModel';
 
 const golfers = [
-         {id: 1,
-           gName: 'Tiger Woods',
-            origin: 'USA',
+         {
+           firstName: 'Tiger',
+           lastName:'Woods',
+           handicap: 0.0,
+           origin: 'USA',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: 0,
-            seasonWins: 0,
+            homeTour: 'PGA Tour'
+            
+            
           },
          {
-            gName: 'Dustin Johnson',
+            firstName: 'Dustin',
+            lastName:'Johnston',
+            handicap: 0.0,
             origin: 'USA',
             sponsor: 'TaylorMade',
             tournament:[],
-            fedxPoints: 0,
-            seasonWins: 2,
+            homeTour:'PGA Tour'
+            
+           
           },
           {
-            id: 3,
-            gName: 'Rory Mclroy',
+            
+            firstName: 'Rory ',
+            lastName:'Mclroy',
+            handicap: 0.0,
             origin: 'Northern Ireland',
             sponsor: 'Nike',
             tournament:[],
-            fedxPoints: 0,
-            seasonWins: 1,
+            homeTour:'PGA Tour'
+            
+            
+          },
+
+          {
+            
+            firstName: 'Matt ',
+            lastName:'Fitzpatrick',
+            handicap: 0.0,
+            origin: 'England',
+            sponsor: 'TaylorMade',
+            tournament:[],
+            homeTour:'European Tour'
+            
+            
+          },
+
+          {
+            
+            firstName: 'Paul ',
+            lastName:'Dunne',
+            handicap: 0.0,
+            origin: 'Ireland',
+            sponsor: 'Titliest',
+            tournament:[],
+            homeTour:'European Tour'
+            
+            
           },
           
       ];
