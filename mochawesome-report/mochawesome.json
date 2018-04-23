@@ -1,0 +1,135 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2018-04-23T14:45:07.564Z",
+    "end": "2018-04-23T14:45:08.349Z",
+    "duration": 785,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false,
+    "passPercentClass": "success",
+    "pendingPercentClass": "danger"
+  },
+  "suites": {
+    "uuid": "cd7a7837-3523-4b12-bd80-437506eea61d",
+    "title": "",
+    "fullFile": "",
+    "file": "",
+    "beforeHooks": [],
+    "afterHooks": [],
+    "tests": [
+      {
+        "title": "should add a golfer",
+        "fullTitle": "should add a golfer",
+        "timedOut": false,
+        "duration": 678,
+        "state": "passed",
+        "speed": "slow",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "// post to /api/golfer\n(0, _supertest2.default)(_index.app).post('/api/golfers').send({ firstName: 'Tiger', lastName: 'Woods', handicap: '0.0', origin: 'USA',\n  sponsor: 'Nike', homeTour: 'PGA Tour' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.should.have.property('_id');\n  res.body.firstName.should.equal('Tiger');\n  done();\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "3859376a-c653-4601-a4c3-c40c4ae91909",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "should update a golfer",
+        "fullTitle": "should update a golfer",
+        "timedOut": false,
+        "duration": 74,
+        "state": "passed",
+        "speed": "medium",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/golfers').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.put('/api/golfers/' + id).send({ sponsor: 'cobra' }).expect('Content-type', /json/).expect(200).end(function (err, res) {\n    res.status.should.equal(200);\n    res.body.sponsor.should.equal('cobra');\n    done();\n  });\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "f6d64851-107b-4b92-a8ff-8a7eb24ca048",
+        "isHook": false,
+        "skipped": false
+      },
+      {
+        "title": "should delete golfer",
+        "fullTitle": "should delete golfer",
+        "timedOut": false,
+        "duration": 9,
+        "state": "passed",
+        "speed": "fast",
+        "pass": true,
+        "fail": false,
+        "pending": false,
+        "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/golfers').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.delete('/api/golfers/' + id).expect('Content-type', /json/).expect(200) // This is HTTP response\n  .end(function (err, res) {\n    res.status.should.equal(204);\n    done();\n  });\n});",
+        "err": {},
+        "isRoot": true,
+        "uuid": "25f4d299-8036-4f08-8f53-edd512d8a1d0",
+        "isHook": false,
+        "skipped": false
+      }
+    ],
+    "suites": [
+      {
+        "uuid": "8114a6fd-9a05-430b-8aad-66c17cf57da5",
+        "title": "Golfers API unit test",
+        "fullFile": "/Users/eoinomahony/Desktop/node-project/test/testGolferAPI.js",
+        "file": "/test/testGolferAPI.js",
+        "beforeHooks": [],
+        "afterHooks": [],
+        "tests": [
+          {
+            "title": "should return collection of JSON documents",
+            "fullTitle": "Golfers API unit test should return collection of JSON documents",
+            "timedOut": false,
+            "duration": 3,
+            "state": "passed",
+            "speed": "fast",
+            "pass": true,
+            "fail": false,
+            "pending": false,
+            "code": "(0, _supertest2.default)(_index.app).get('/api/golfers').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  res.status.should.equal(200);\n  done();\n});",
+            "err": {},
+            "isRoot": false,
+            "uuid": "0acd8563-1fb5-42e4-9d1c-f5085d8c71eb",
+            "isHook": false,
+            "skipped": false
+          }
+        ],
+        "suites": [],
+        "passes": [
+          "0acd8563-1fb5-42e4-9d1c-f5085d8c71eb"
+        ],
+        "failures": [],
+        "pending": [],
+        "skipped": [],
+        "duration": 3,
+        "root": false,
+        "rootEmpty": false,
+        "_timeout": 120000
+      }
+    ],
+    "passes": [
+      "3859376a-c653-4601-a4c3-c40c4ae91909",
+      "f6d64851-107b-4b92-a8ff-8a7eb24ca048",
+      "25f4d299-8036-4f08-8f53-edd512d8a1d0"
+    ],
+    "failures": [],
+    "pending": [],
+    "skipped": [],
+    "duration": 761,
+    "root": true,
+    "rootEmpty": false,
+    "_timeout": 2000
+  },
+  "copyrightYear": 2018
+}

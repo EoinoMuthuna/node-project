@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 const TournamentSchema = new Schema({
-  tournament: {type: String, required:true},
-  result:{type: String, required:true},
+  tournament: {type: String},
+  result:{type: String},
   
   });
 

@@ -34,7 +34,7 @@ router.delete('/:id', (req, res) => {
     if (!golfer) return res.send(404);
     golfer.remove(function(err) {
       if (err) return handleError(res, err);
-      return res.status(200).json({message: "Golfer deleted"});
+      return res.status(204).json({message: "Golfer deleted"});
     });
   });
 });
@@ -61,7 +61,7 @@ router.put('/:id',(req, res) =>{
   if (req.body._id) delete req.body._id;
   Golfers.findById(req.params.id, (err, golfer) =>{
     if (err) return handleError(res, err);
-    if(!golfer) return res.send(408);
+    if(!golfer) return res.send(404);
     const updated = _.merge(golfer, req.body);
     updated.save((err) => {
      if (err) return handleError(res, err);
