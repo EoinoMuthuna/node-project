@@ -21,6 +21,7 @@ it('should return collection of JSON documents', function(done) {
     // post to /api/golfer
     supertest(app)
     .post('/api/golfers')
+    .set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw')
     .send({firstName: 'Tiger', lastName: 'Woods' , handicap: '0.0' , origin: 'USA' ,
      sponsor: 'Nike' , homeTour:'PGA Tour' })
     .expect('Content-type', /json/)
@@ -38,6 +39,7 @@ it('should update a golfer', function(done) {
     const superserver = supertest(app);
     superserver
     .get('/api/golfers')
+    .set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw')
     .expect('Content-type', /json/)
     .expect(200) 
     .end(function(err, res) {
@@ -61,6 +63,7 @@ it('should update a golfer', function(done) {
     const superserver = supertest(app);
     superserver
     .get('/api/golfers')
+    .set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw')
     .expect('Content-type', /json/)
     .expect(200) 
     .end(function(err, res) {

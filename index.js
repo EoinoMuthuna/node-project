@@ -5,6 +5,9 @@ import golfersRouter from './api/golfers';
 import mongoose from 'mongoose';
 import {loadGolfers} from './golfersData';
 import {Mockgoose} from 'mockgoose';
+import {loadUsers} from './userData';
+import passport from './auth';
+import usersRouth from "./api/users";
 
 dotenv.config();
 
@@ -31,6 +34,7 @@ mongoose.connection.on('error', (err) => {
 // Populate DB with sample data
 if (process.env.seedDb) {
   loadGolfers();
+  loadUsers();
 }
 
 
@@ -39,13 +43,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use('/api/golfers', golfersRouter);
 app.use(express.static('public'));
-
+app.use('/api/users', usersRouth);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
 });
 
-
+app.use('/api/drivers', passport.authenticate('jwt', {session: false}), golfersRouter);
 
 
 
