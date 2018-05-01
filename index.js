@@ -53,7 +53,7 @@ app.get('/',(req,res)=> {
   res.redirect('/api/golfers')
 });
 
-app.use('/api/drivers', passport.authenticate('jwt', {session: false}), golfersRouter);
+app.use('/api/golfers', passport.authenticate('jwt', {session: false}), golfersRouter);
 
 
 
