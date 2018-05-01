@@ -40,13 +40,17 @@ if (process.env.seedDb) {
 
 //configure body-parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded({extended :true}));
 app.use('/api/golfers', golfersRouter);
 app.use(express.static('public'));
 app.use('/api/users', usersRouth);
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
+});
+
+app.get('/',(req,res)=> {
+  res.redirect('/api/golfers')
 });
 
 app.use('/api/drivers', passport.authenticate('jwt', {session: false}), golfersRouter);
