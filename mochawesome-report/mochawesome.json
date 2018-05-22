@@ -5,9 +5,9 @@
     "passes": 7,
     "pending": 0,
     "failures": 0,
-    "start": "2018-05-01T11:38:52.881Z",
-    "end": "2018-05-01T11:38:54.569Z",
-    "duration": 1688,
+    "start": "2018-05-22T12:11:01.355Z",
+    "end": "2018-05-22T12:11:03.318Z",
+    "duration": 1963,
     "testsRegistered": 7,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -19,7 +19,7 @@
     "pendingPercentClass": "danger"
   },
   "suites": {
-    "uuid": "d6244dae-575a-4af4-a232-50f0244260a7",
+    "uuid": "e8aeedc3-489c-49cd-b71c-b82e4aaf299c",
     "title": "",
     "fullFile": "",
     "file": "",
@@ -30,7 +30,7 @@
         "title": "should add a golfer",
         "fullTitle": "should add a golfer",
         "timedOut": false,
-        "duration": 1124,
+        "duration": 1386,
         "state": "passed",
         "speed": "slow",
         "pass": true,
@@ -39,7 +39,7 @@
         "code": "// post to /api/golfer\n(0, _supertest2.default)(_index.app).post('/api/golfers').set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw').send({ firstName: 'Tiger', lastName: 'Woods', handicap: '0.0', origin: 'USA',\n  sponsor: 'Nike', homeTour: 'PGA Tour' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.should.have.property('_id');\n  res.body.firstName.should.equal('Tiger');\n  done();\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "b18fe694-73f0-40ac-a50a-75cc75d428ed",
+        "uuid": "9e073229-82d0-4bd2-b995-60387ee0a2de",
         "isHook": false,
         "skipped": false
       },
@@ -47,7 +47,7 @@
         "title": "should update a golfer",
         "fullTitle": "should update a golfer",
         "timedOut": false,
-        "duration": 27,
+        "duration": 30,
         "state": "passed",
         "speed": "fast",
         "pass": true,
@@ -56,7 +56,7 @@
         "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/golfers').set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.put('/api/golfers/' + id).send({ sponsor: 'cobra' }).expect('Content-type', /json/).expect(200).end(function (err, res) {\n    res.status.should.equal(200);\n    res.body.sponsor.should.equal('cobra');\n    done();\n  });\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "44fc4507-bfec-4f4a-85cd-7b9ce35ce179",
+        "uuid": "0cbc0c2d-c9b5-44f4-8ec8-7b5d9d66c647",
         "isHook": false,
         "skipped": false
       },
@@ -73,14 +73,14 @@
         "code": "var superserver = (0, _supertest2.default)(_index.app);\nsuperserver.get('/api/golfers').set('Authorization', 'BERARER  eyJhbGciOiJIUzI1NiJ9.YWFyb24.-pgBvhdfk3GlGbP15RNa7wTQwO9dg5dQY218OYmCEmw').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  var id = res.body[0]._id;\n  superserver.delete('/api/golfers/' + id).expect('Content-type', /json/).expect(200) // This is HTTP response\n  .end(function (err, res) {\n    res.status.should.equal(204);\n    done();\n  });\n});",
         "err": {},
         "isRoot": true,
-        "uuid": "57e1beca-c640-441a-aa8a-b213f7f4853f",
+        "uuid": "511d36ae-025e-4285-b7cd-83e7dd33804b",
         "isHook": false,
         "skipped": false
       }
     ],
     "suites": [
       {
-        "uuid": "17af1c9a-3e54-44aa-87b1-3e6681f6a3d6",
+        "uuid": "fa1f1826-df80-4f6d-a86d-6f16617642ce",
         "title": "Golfers API unit test",
         "fullFile": "/Users/eoinomahony/Desktop/node-project/test/testGolferAPI.js",
         "file": "/test/testGolferAPI.js",
@@ -100,14 +100,14 @@
             "code": "(0, _supertest2.default)(_index.app).get('/api/golfers').expect('Content-type', /json/).expect(200).end(function (err, res) {\n  res.status.should.equal(200);\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "2c2e147b-3aee-410e-bbe3-9398c16fa022",
+            "uuid": "55a53ef6-5f89-4b8b-b302-bb7d92f0a11c",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "2c2e147b-3aee-410e-bbe3-9398c16fa022"
+          "55a53ef6-5f89-4b8b-b302-bb7d92f0a11c"
         ],
         "failures": [],
         "pending": [],
@@ -118,7 +118,7 @@
         "_timeout": 120000
       },
       {
-        "uuid": "8fde4368-c24c-444d-89b5-b95caca321cf",
+        "uuid": "6b8032ad-1593-4c99-814e-74b52e4704eb",
         "title": "Users API unit test",
         "fullFile": "/Users/eoinomahony/Desktop/node-project/test/testUsersAPI .js",
         "file": "/test/testUsersAPI .js",
@@ -129,7 +129,7 @@
             "title": "should return a collection of JSON documents",
             "fullTitle": "Users API unit test should return a collection of JSON documents",
             "timedOut": false,
-            "duration": 9,
+            "duration": 7,
             "state": "passed",
             "speed": "fast",
             "pass": true,
@@ -138,7 +138,7 @@
             "code": "(0, _supertest2.default)(_index.app).get('/api/users').expect('Content-type', /json/).expect(200).end(function (err, res) {\n      res.status.should.equal(200);\n      done();\n    });",
             "err": {},
             "isRoot": false,
-            "uuid": "431ddb05-3fa6-4fad-9b8b-14e75ce6b5aa",
+            "uuid": "fbd39d29-1878-4769-8b37-4679970f16c9",
             "isHook": false,
             "skipped": false
           },
@@ -146,7 +146,7 @@
             "title": "should register a user",
             "fullTitle": "Users API unit test should register a user",
             "timedOut": false,
-            "duration": 243,
+            "duration": 234,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -155,7 +155,7 @@
             "code": "// post to /api/contacts\n(0, _supertest2.default)(_index.app).post('/api/users').query({ action: 'register' }).send({ username: 'JDaly', password: 'tester1' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(201);\n  res.body.success.should.equal(true);\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "acefadd8-3893-4754-9da1-006fc26592fc",
+            "uuid": "66d751d2-5de8-4f89-9472-ec746cbc2d54",
             "isHook": false,
             "skipped": false
           },
@@ -163,7 +163,7 @@
             "title": "should authenticate a user",
             "fullTitle": "Users API unit test should authenticate a user",
             "timedOut": false,
-            "duration": 238,
+            "duration": 250,
             "state": "passed",
             "speed": "slow",
             "pass": true,
@@ -172,35 +172,35 @@
             "code": "// post to /api/contacts\n(0, _supertest2.default)(_index.app).post('/api/users').send({ username: 'aaron', password: 'dylan' }).expect('Content-type', /json/).expect(201).end(function (err, res) {\n  res.status.should.equal(200);\n  res.body.token.substring(0, 3).should.equal('JWT');\n  done();\n});",
             "err": {},
             "isRoot": false,
-            "uuid": "50c9b050-529e-4a0a-987d-75b1ff97ac14",
+            "uuid": "547ecaf1-6fe8-4303-98ca-1b6de15afbd0",
             "isHook": false,
             "skipped": false
           }
         ],
         "suites": [],
         "passes": [
-          "431ddb05-3fa6-4fad-9b8b-14e75ce6b5aa",
-          "acefadd8-3893-4754-9da1-006fc26592fc",
-          "50c9b050-529e-4a0a-987d-75b1ff97ac14"
+          "fbd39d29-1878-4769-8b37-4679970f16c9",
+          "66d751d2-5de8-4f89-9472-ec746cbc2d54",
+          "547ecaf1-6fe8-4303-98ca-1b6de15afbd0"
         ],
         "failures": [],
         "pending": [],
         "skipped": [],
-        "duration": 490,
+        "duration": 491,
         "root": false,
         "rootEmpty": false,
         "_timeout": 120000
       }
     ],
     "passes": [
-      "b18fe694-73f0-40ac-a50a-75cc75d428ed",
-      "44fc4507-bfec-4f4a-85cd-7b9ce35ce179",
-      "57e1beca-c640-441a-aa8a-b213f7f4853f"
+      "9e073229-82d0-4bd2-b995-60387ee0a2de",
+      "0cbc0c2d-c9b5-44f4-8ec8-7b5d9d66c647",
+      "511d36ae-025e-4285-b7cd-83e7dd33804b"
     ],
     "failures": [],
     "pending": [],
     "skipped": [],
-    "duration": 1161,
+    "duration": 1426,
     "root": true,
     "rootEmpty": false,
     "_timeout": 2000
